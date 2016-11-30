@@ -33,6 +33,9 @@ public class ViewRentalAgency extends ViewPart {
 		tv.setInput( agencies );
 		
 		tv.expandAll();
+		
+		getSite().setSelectionProvider(tv);
+		
 	}
 
 	@Override
