@@ -14,6 +14,9 @@ import com.st.rental.core.RentalCoreActivator;
 public class RentalPropertyView extends ViewPart {
 
 	private Label rentedObjectLabel, customerLabel;
+	private Group grpDatesDeLocation;
+	private Label lblDatedu;
+	private Label lblDateau;
 	
 	
 	
@@ -37,6 +40,28 @@ public class RentalPropertyView extends ViewPart {
 		l.setText("Loué à: ");
 		customerLabel = new Label(infoGroup, SWT.NONE);
 		
+		grpDatesDeLocation = new Group(parent, SWT.NONE);
+		grpDatesDeLocation.setLayout(new GridLayout(2, false));
+		GridData gd_grpDatesDeLocation = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_grpDatesDeLocation.widthHint = 156;
+		gd_grpDatesDeLocation.heightHint = 84;
+		grpDatesDeLocation.setLayoutData(gd_grpDatesDeLocation);
+		grpDatesDeLocation.setText("Dates de location");
+		
+		Label lblDu = new Label(grpDatesDeLocation, SWT.NONE);
+		lblDu.setText("du :");
+		
+		 lblDatedu = new Label(grpDatesDeLocation, SWT.NONE);
+		 lblDatedu.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		lblDatedu.setText("date-du");
+		 
+		 Label lblAu = new Label(grpDatesDeLocation, SWT.NONE);
+		 lblAu.setText("au : ");
+		
+		 lblDateau = new Label(grpDatesDeLocation, SWT.NONE);
+		 lblDateau.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		lblDateau.setText("date-au");
+		
 		setRental( RentalCoreActivator.getAgency().getRentals().get(0) );
 	}
 
@@ -44,6 +69,8 @@ public class RentalPropertyView extends ViewPart {
 	private void setRental (Rental r) {
 		rentedObjectLabel.setText(r.getRentedObject().getName());
 		customerLabel.setText(r.getCustomer().getDisplayName());
+		lblDatedu.setText(r.getStartDate().toString());
+		lblDateau.setText(r.getEndDate().toString());
 	}
 	
 	
@@ -52,5 +79,4 @@ public class RentalPropertyView extends ViewPart {
 		// TODO Auto-generated method stub
 
 	}
-
 }
