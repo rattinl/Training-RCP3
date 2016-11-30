@@ -2,14 +2,21 @@ package com.st.rental.ui.views;
 
 import java.util.Collection;
 
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
+import com.st.rental.ui.RentalUIActivator;
+import com.st.rental.ui.RentalUIConstants;
 
-public class RentalProvider extends LabelProvider implements ITreeContentProvider {
+public class RentalProvider extends LabelProvider implements ITreeContentProvider,IColorProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
@@ -51,8 +58,25 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	}
 	
 	@Override
+	public Color getForeground(Object element) {
+		Display d = Display.getCurrent();
+		
+		if ( element instanceof RentalAgency )
+			return d.getSystemColor(SWT.COLOR_BLUE);
+		if ( element instanceof Customer )
+			return d.getSystemColor(SWT.COLOR_MAGENTA);
+		if ( element instanceof RentalObject )
+			return d.getSystemColor(SWT.COLOR_DARK_GREEN);
+		return null;
+	}
+
+	@Override
+	public Color getBackground(Object element) {
+		return null;
+	}
+
+	@Override
 	public String getText(Object element) {
-		// TODO Auto-generated method stub
 		if ( element instanceof RentalAgency )
 			return ((RentalAgency) element).getName();
 		else
@@ -63,6 +87,19 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		return super.getText(element);
 	}
 	
+	@Override
+	public Image getImage(Object element) {
+		RentalUIActivator ruia = RentalUIActivator.getDefault();
+
+		if ( element instanceof RentalAgency ) 
+			return ruia.getImageRegistry().get(RentalUIConstants.IMG_AGENCY);
+	    else
+			if ( element instanceof Customer )
+				return ruia.getImageRegistry().get(RentalUIConstants.IMG_CUSTOMER);
+		if ( element instanceof RentalObject )
+			return ruia.getImageRegistry().get(RentalUIConstants.IMG_RENTAL_OBJECT);
+		return super.getImage(element);
+	}
 	
 	public class Node {
 		public static final String OBJETS_À_LOUER = "Objets à louer";
