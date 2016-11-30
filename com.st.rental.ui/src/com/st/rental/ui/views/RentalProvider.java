@@ -98,7 +98,7 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 				return ruia.getImageRegistry().get(RentalUIConstants.IMG_CUSTOMER);
 		if ( element instanceof RentalObject )
 			return ruia.getImageRegistry().get(RentalUIConstants.IMG_RENTAL_OBJECT);
-		return super.getImage(element);
+		return super.getImage(element); 
 	}
 	
 	public class Node {
