@@ -42,5 +42,63 @@
             name="Rental Color">
       </page>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.st.rental.ui.commands.helloworldcommand"
+            name="Hello World Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.st.rental.ui.handlers.HelloWorldHandler"
+            commandId="com.st.rental.ui.commands.helloworldcommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Hello World Menu">
+            <command
+                  commandId="com.st.rental.ui.commands.helloworldcommand"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.st.rental.ui.toolbar2"
+               label="tool">
+            <command
+                  commandId="com.st.rental.ui.commands.helloworldcommand"
+                  icon="icons/Agency.png"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.views.ResourceNavigator?after=additions">
+         <command
+               commandId="com.st.rental.ui.commands.helloworldcommand"
+               icon="icons/Agency.png"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.st.rental.ui.viewRentalAgency?after=additions">
+         <command
+               commandId="com.st.rental.ui.commands.helloworldcommand"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>
