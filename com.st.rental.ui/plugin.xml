@@ -31,5 +31,16 @@
             name="Rental">
       </perspective>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.st.rental.pref.RentalColorPreference"
+            id="com.st.rental.ui.page2"
+            name="Rental Color">
+      </page>
+   </extension>
 
 </plugin>
