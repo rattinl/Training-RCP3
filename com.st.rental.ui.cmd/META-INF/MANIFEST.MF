@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cmd
+Bundle-SymbolicName: com.st.rental.ui.cmd;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.st.rental.ui.cmd.CmdActivator
+Bundle-Vendor: ST
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.st.rental.ui;bundle-version="1.0.0",
+ org.eclipse.core.expressions,
+ com.st.rental.core;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.st.rental.ui.cmd
