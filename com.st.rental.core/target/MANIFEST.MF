@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.st.rental.core
+Export-Package: com.opcoach.training.rental,com.st.rental.core
+Bundle-Name: Core
+Bundle-Version: 1.0.0.201612021611
+Bundle-ClassPath: rental.jar,.
+Require-Bundle: org.eclipse.emf.common;bundle-version="2.12.0";visibil
+ ity:=reexport,org.eclipse.emf.ecore;bundle-version="2.12.0";visibilit
+ y:=reexport,org.eclipse.core.runtime;bundle-version="3.12.0"
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Activator: com.st.rental.core.RentalCoreActivator
+Bundle-Vendor: ST
+
