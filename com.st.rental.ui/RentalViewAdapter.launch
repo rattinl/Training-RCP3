@@ -27,7 +27,7 @@
 <stringAttribute key="selected_workspace_plugins" value="com.st.rental.adapters@default:true,com.st.rental.core@default:default,com.st.rental.help@default:default,com.st.rental.ui.cmd@default:default,com.st.rental.ui@default:default"/>
 <booleanAttribute key="show_selected_only" value="false"/>
 <stringAttribute key="templateConfig" value="${target_home}\configuration\config.ini"/>
-<booleanAttribute key="tracing" value="true"/>
+<booleanAttribute key="tracing" value="false"/>
 <mapAttribute key="tracingOptions">
 <mapEntry key="org.eclipse.core.contenttype/debug" value="false"/>
 <mapEntry key="org.eclipse.core.expressions/debug/TypeExtensionManager" value="false"/>

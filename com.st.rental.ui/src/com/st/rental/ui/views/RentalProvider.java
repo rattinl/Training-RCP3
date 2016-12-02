@@ -16,6 +16,7 @@ import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
+import com.st.rental.ui.Palette;
 import com.st.rental.ui.RentalUIActivator;
 import com.st.rental.ui.RentalUIConstants;
 
@@ -62,37 +63,23 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	
 	@Override
 	public Color getForeground(Object element) {
-		Display d = Display.getCurrent();
-		
-		if ( element instanceof RentalAgency )
-				return getAColor( RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_COLOR) );
-		if ( element instanceof Rental )
-			return getAColor( RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_COLOR) );
-			//			return d.getSystemColor(SWT.COLOR_BLUE);
-		if ( element instanceof Customer )
-			return getAColor( RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_CUSTOMER_COLOR) );
-//			return d.getSystemColor(SWT.COLOR_MAGENTA);
-		if ( element instanceof RentalObject )
-			return getAColor( RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_OBJECT_COLOR) );
-//			return d.getSystemColor(SWT.COLOR_DARK_GREEN);
-		return null;
-	}
+		String palId = RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
+				
+		Palette p = RentalUIActivator.getDefault().getPaletteManager().get(palId);
 
-	private Color getAColor(String rgbkey) {
-		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
-		Color col = colorRegistry.get(rgbkey);
-		if ( col == null) {
-			colorRegistry.put(rgbkey, StringConverter.asRGB(rgbkey));
-			col = colorRegistry.get(rgbkey);
-		}
-		
-		return col;
+		return p.getProvider().getForeground(element);
+	
 	}
 	
 	
 	@Override
 	public Color getBackground(Object element) {
-		return null;
+		String palId = RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
+		
+		Palette p = RentalUIActivator.getDefault().getPaletteManager().get(palId);
+
+		return p.getProvider().getBackground(element);
+	
 	}
 
 	@Override
