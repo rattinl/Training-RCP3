@@ -11,4 +11,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: com.st.rental.ui
+Export-Package: com.st.rental.ui,
+ com.st.rental.ui.perspective

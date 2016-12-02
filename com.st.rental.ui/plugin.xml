@@ -132,5 +132,11 @@
             name="yellow">
       </palette>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.st.rental.ui.pref.RentaLPrefInit">
+      </initializer>
+   </extension>
 
 </plugin>
