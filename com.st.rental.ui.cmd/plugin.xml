@@ -11,6 +11,14 @@
             </instanceof>
          </iterate>
       </definition>
+      <definition
+            id="com.st.rental.ui.cmd.RentalSelected">
+         <iterate>
+            <instanceof
+                  value="com.opcoach.training.rental.Rental">
+            </instanceof>
+         </iterate>
+      </definition>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -18,14 +26,24 @@
             class="com.st.rental.ui.cmd.handlers.CopyCustomerHandlers"
             commandId="org.eclipse.ui.edit.copy">
          <activeWhen>
-            <reference
-                  definitionId="com.st.rental.ui.cmd.customerSelected">
-            </reference>
+            <or>
+               <reference
+                     definitionId="com.st.rental.ui.cmd.customerSelected">
+               </reference>
+               <reference
+                     definitionId="com.st.rental.ui.cmd.RentalSelected">
+               </reference>
+            </or>
          </activeWhen>
          <enabledWhen>
-            <reference
-                  definitionId="com.st.rental.ui.cmd.customerSelected">
-            </reference>
+            <or>
+               <reference
+                     definitionId="com.st.rental.ui.cmd.customerSelected">
+               </reference>
+               <reference
+                     definitionId="com.st.rental.ui.cmd.RentalSelected">
+               </reference>
+            </or>
          </enabledWhen>
       </handler>
    </extension>
@@ -40,9 +58,14 @@
                style="push">
             <visibleWhen
                   checkEnabled="false">
-               <reference
-                     definitionId="com.st.rental.ui.cmd.customerSelected">
-               </reference>
+               <or>
+                  <reference
+                        definitionId="com.st.rental.ui.cmd.RentalSelected">
+                  </reference>
+                  <reference
+                        definitionId="com.st.rental.ui.cmd.customerSelected">
+                  </reference>
+               </or>
             </visibleWhen>
          </command>
       </menuContribution>

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.dnd.Clipboard;
@@ -32,8 +33,13 @@ public class CopyCustomerHandlers extends AbstractHandler {
 		if ( currentSelection instanceof IStructuredSelection ) {
 			IStructuredSelection isel = ( IStructuredSelection ) currentSelection;
 			Object selected = isel.getFirstElement();
-			if ( selected instanceof Customer ) {
-				textData = ((Customer) selected).getDisplayName();
+			
+			
+			// if ( selected instanceof Customer ) 
+			Customer cust = Platform.getAdapterManager().getAdapter(selected, Customer.class);
+			{
+//				textData = ((Customer) selected).getDisplayName();
+				textData = cust.getDisplayName();
 				String rtfData = "{\\rtf1\\b\\i " + textData + "}";
 
 				TextTransfer textTransfer = TextTransfer.getInstance();

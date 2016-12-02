@@ -21,6 +21,18 @@
             name="RentalAgency"
             restorable="true">
       </view>
+      <view
+            category="com.st.rental.ui.category"
+            class="com.st.rental.ui.views.ViewRentalCustomer"
+            id="com.st.rental.ui.viewCustomerProperty"
+            name="Customer Property"
+            restorable="true">
+      </view>
+      <view
+            class="com.st.rental.ui.views.ViewRentalCustomer"
+            id="com.st.rental.ui.views.ViewRentalCustomer"
+            name="Customer Property">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
