@@ -1,15 +1,10 @@
 package com.st.rental.pref;
 
 import org.eclipse.jface.preference.ColorFieldEditor;
-import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import com.opcoach.training.rental.MyRentalAgency;
 import com.st.rental.ui.RentalUIActivator;
 import com.st.rental.ui.RentalUIConstants;
 

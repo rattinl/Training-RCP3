@@ -13,6 +13,7 @@ import org.eclipse.ui.actions.ActionFactory;
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	private IAction quitAction;
 	private IAction preferencesAction;
+	private IAction showViewMenuAction;
 
 	public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
 		super(configurer);
@@ -30,6 +31,10 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		{
 			preferencesAction = ActionFactory.PREFERENCES.create(window);
 			register(preferencesAction);
+		}
+		{
+			showViewMenuAction = ActionFactory.SHOW_VIEW_MENU.create(window);
+			register(showViewMenuAction);
 		}
 	}
 	
@@ -50,6 +55,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		menuManager_1.setMenuText("Window");
 		menuBar.add(menuManager_1);
 		menuManager_1.add(preferencesAction);
+		menuManager_1.add(showViewMenuAction);
 	}
 	
 	@Override
